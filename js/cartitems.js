@@ -132,6 +132,7 @@ function cart_generator() {
       var td3divdivinp = document.createElement("input");
       td3divdivinp.setAttribute("id", index + "-3112");
       td3divdivinp.setAttribute("type", "text");
+      td3divdivinp.setAttribute("readonly","true");
       td3divdivinp.value=quantitylist[index]
       document.getElementById(index + "-311").appendChild(td3divdivinp);
       // td3-div-div-span
