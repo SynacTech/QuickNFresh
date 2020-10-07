@@ -243,7 +243,10 @@ function Total(){
 function Message_generator(){
   if(document.getElementById('location').value == ""){
     alert("Please Select Nearest Location")
-  }else if(confirm("Location is "+document.getElementById('location').value)){
+  }else if(sessionStorage.getItem("products")==null){
+    alert("Empty Cart")
+  }
+  else if(confirm("Location is "+document.getElementById('location').value)){
     console.log(typeof(document.getElementById('location').value))
 var dc=delivery_charge(document.getElementById('location').value)
 alert("Delivery charge : ₹ "+dc);
