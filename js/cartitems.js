@@ -241,6 +241,12 @@ function Total(){
 }
 
 function Message_generator(){
+  if(document.getElementById('location').value == ""){
+    alert("Please Select Nearest Location")
+  }else if(confirm("Location is "+document.getElementById('location').value)){
+    console.log(typeof(document.getElementById('location').value))
+var dc=delivery_charge(document.getElementById('location').value)
+alert("Delivery charge : ₹ "+dc);
 var val = sessionStorage.getItem("value").split(",");
 var mass = sessionStorage.getItem("per").split(",");
 var prodlist = sessionStorage.getItem("products").split(",");
@@ -254,9 +260,68 @@ for (let index = 0; index < prodlist.length; index++) {
 for (let ind = 0; ind < prodlist.length; ind++) {
   message =message + "Item "+(ind+1)+" : "+prodlist[ind]+"%0D%0APrice: ₹"+val[ind]+" / "+mass[ind]+" Quantity : "+quantitylist[ind]+" "+mass[ind]+"%0D%0A";
 }
-message = message + "Total Items Cost = ₹"+totalvalue +"%0D%0AKindly Share your Location so we can reach you Quick N Fresh !!!"
+message = message + "Total Items Cost = ₹"+totalvalue+" Delivery Charge =₹"+dc
+totalvalue=totalvalue+dc
+message = message + " Total Amount = ₹"+totalvalue +"%0D%0AKindly Share your Location so we can reach you Quick N Fresh !!!"
   var win = window.open(`https://wa.me/919623413148?text=${message}`, '_blank');
   // alert(message);
   // alert("Order Sent To Distributer.")
+  sessionStorage.clear();
+  alert("Order Sent to Quick N Fresh")
+}else{
+  document.getElementById("location").value =""
+  alert("Select another Location.")
+ 
+}
+  }
 
+function delivery_charge(location){
+  var dc=0;
+  switch (location) {
+    case "N1 to N8":
+      dc=50;
+    return dc;
+      case "T.V. Center":
+        dc=0;
+        return dc;
+      case "Canought Place":
+        dc=50;
+        return dc;
+      case "Mayur Park":
+        dc=50;
+        return dc;
+      case "Bhagat Singh Nagar":
+        dc=50;
+        return dc;
+      case "Collector Office":
+        dc=50;
+        return dc;
+      case "Prozone Mall area":
+        dc=50;
+        return dc;
+      case "Blue Bells Society":
+        dc=50;
+        return dc;
+      case "M2 area":
+        dc=50;
+        return dc;
+      case "New Usmapura":
+        dc=50;
+        return dc;
+      case "Vedant Nagar":
+        dc=50;
+        return dc;
+      case "Sigma Hospital area":
+        dc=50;
+        return dc;
+      case "Roplekar Hospital area":
+        dc=50;
+        return dc;
+      case "Jyoti Nagar":
+        dc=50;
+        return dc;
+      case "Shreya Nagar":
+        dc=50;
+        return dc;
+        }
 }

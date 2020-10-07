@@ -146,7 +146,30 @@
             class="text-center"
             style="font-size: 25px; font-weight: 600; padding-top: 12px"
           ></div>
-          <br />
+         <label>Please Select Your Location </label><br>
+          <input list="screens.screenid-datalist" type="text" id="location" style="border-width: 8px;border-color: coral;">
+          <datalist id="screens.screenid-datalist">
+           <option value="N1 to N8" ></option>
+           <option value="T.V. Center"></option>
+           <option value="Canought Place"></option>
+           <option value="Mayur Park"></option>
+           <option value="Bhagat Singh Nagar"></option>
+           <option value="Collector Office"></option>
+           <option value="Prozone Mall area"></option>
+           <option value="Blue Bells Society"></option>
+           <option value="M2 area"></option>
+           <option value="New Usmapura"></option>
+           <option value="Vedant Nagar"></option>
+           <option value="Sigma Hospital area"></option>
+           <option value="Roplekar Hospital area"></option>
+           <option value="Jyoti Nagar"></option>
+           <option value="Shreya Nagar"></option>
+          </datalist>
+       <label id="val-screens.screenid" class="Label_Error" style="visibility: hidden;">*</label>
+       <!-- <a href="#" onclick="validate">validate</a> -->
+
+<br><br>
+        
           <button onclick="Message_generator()" class="primary-btn">
             PROCEED TO CHECKOUT
           </button>
@@ -192,31 +215,9 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $("#hide").click(function () {
-          $("button").hide();
-        });
-        $("#show").click(function () {
-          $("button").show();
-        });
-      });
-      window.onload = cart_generator();
+   
 
-      // window.onload = function () {
-      //   var reloading = sessionStorage.getItem("reloading");
-      //   if (reloading) {
-      //     sessionStorage.removeItem("reloading");
-      //     myFunction();
-      //   }
-      // };
-
-      // function reloadP() {
-      //   sessionStorage.setItem("reloading", "true");
-      //   document.location.reload();
-      // }
-    </script>
+    
     <script src="js/cartitems.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
