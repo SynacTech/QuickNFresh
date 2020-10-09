@@ -50,7 +50,8 @@ function addproduct(product,value,per,quant) {
       sessionStorage.setItem("quantity", quantity);
       console.log(prod, val, mass,quantity);
     } else {
-      alert("Product Already Added.");
+      // alert("Product Already Added.");
+      console.log("Product already Added");
     }
   }
 }
@@ -199,8 +200,12 @@ function addquantity(productname){
 
   console.log(quantitylist)
   sessionStorage.setItem("quantity",quantitylist)
-  alert("Item:"+productname+" \n Quantity:"+value2)  
-  // console.log(sessionStorage)
+
+  // alert value
+
+  // alert("Item:"+productname+" \n Quantity:"+value2)  
+
+  
 }
 function subquantity(productname){
   console.log('entry1')
@@ -213,7 +218,7 @@ if(value>1){
   value=value-1
   quantitylist[prodlist.indexOf(productname)]=value.toString()
 sessionStorage.setItem("quantity",quantitylist)
-alert("Item:"+productname+" \n Quantity:"+value.toString())  
+// alert("Item:"+productname+" \n Quantity:"+value.toString())  
 }else if(value==1){
   var i = prodlist.indexOf(productname)
 val.splice(i,1)
@@ -224,7 +229,7 @@ sessionStorage.setItem("products", prodlist);
 sessionStorage.setItem("value", val);
 sessionStorage.setItem("per", mass);
 sessionStorage.setItem("quantity",quantitylist);
-alert("Item:"+productname+" \n Removed")  
+// alert("Item:"+productname+" \n Removed")  
 console.log(sessionStorage)
 }
 }
