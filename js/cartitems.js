@@ -266,11 +266,11 @@ for (let ind = 0; ind < prodlist.length; ind++) {
 message = message + "Total Items Cost = ₹"+totalvalue+" Delivery Charge =₹"+dc
 totalvalue=totalvalue+dc
 message = message + " Total Amount = ₹"+totalvalue +"%0D%0AKindly Share your Location so we can reach you Quick N Fresh !!!"
-  var win = window.open(`https://wa.me/919623413148?text=${message}`, '_blank');
+  // var win = window.open(`https://wa.me/919623413148?text=${message}`, '_blank');
   // alert(message);
   // alert("Order Sent To Distributer.")
-  sessionStorage.clear();
-  alert("Order Sent to Quick N Fresh")
+  // sessionStorage.clear();
+  // alert("Order Sent to Quick N Fresh")
 }else{
   document.getElementById("location").value =""
   alert("Select another Location.")
