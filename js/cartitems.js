@@ -287,34 +287,34 @@ function delivery_charge(location){
   var dc=0;
   switch (location) {
     case "N1 to N8":
-      dc=50;
+      dc=30;
     return dc;
       case "T.V. Center":
         dc=0;
         return dc;
       case "Canought Place":
-        dc=50;
+        dc=20;
         return dc;
       case "Mayur Park":
-        dc=50;
+        dc=0;
         return dc;
       case "Bhagat Singh Nagar":
-        dc=50;
+        dc=20;
         return dc;
       case "Collector Office":
-        dc=50;
+        dc=30;
         return dc;
       case "Prozone Mall area":
-        dc=50;
+        dc=30;
         return dc;
       case "Blue Bells Society":
-        dc=50;
+        dc=30;
         return dc;
       case "M2 area":
-        dc=50;
+        dc=10;
         return dc;
       case "New Usmapura":
-        dc=50;
+        dc=30;
         return dc;
       case "Vedant Nagar":
         dc=50;
