@@ -190,7 +190,7 @@ function addquantity(productname){
 //  console.log(i)
   var value=quantitylist[i]
   // console.log(typeof(value))
-  var value1=parseInt(value)+1
+  var value1=parseInt(value)+0.5
   // console.log(typeof(value1))
   // console.log(value1)
   var value2 =value1.toString()
@@ -215,11 +215,11 @@ function subquantity(productname){
 var quantitylist = sessionStorage.getItem("quantity").split(",");
 var value= parseInt(quantitylist[prodlist.indexOf(productname)])
 if(value>1){
-  value=value-1
+  value=value-0.5
   quantitylist[prodlist.indexOf(productname)]=value.toString()
 sessionStorage.setItem("quantity",quantitylist)
 // alert("Item:"+productname+" \n Quantity:"+value.toString())  
-}else if(value==1){
+}else if(value==0.5){
   var i = prodlist.indexOf(productname)
 val.splice(i,1)
 mass.splice(i,1)
