@@ -105,7 +105,13 @@ function cart_generator() {
       var td2 = document.createElement("TD");
       td2.setAttribute("id", index + "-2");
       td2.setAttribute("class", "shoping__cart__price");
-      td2.innerHTML ="₹ "+ val[index] + "&nbsp&nbsp/&nbsp&nbsp" + mass[index];
+      if (mass[index]=="kg"){
+      td2.innerHTML ="₹ "+ val[index] + "&nbsp&nbsp/&nbsp&nbsp 500gram";
+      }else if(mass[index]=="bunch"){
+        td2.innerHTML ="₹ "+ val[index] + "&nbsp&nbsp/&nbsp&nbsp" + mass[index]; 
+      }else{
+        td2.innerHTML ="₹ "+ val[index] + "&nbsp&nbsp/&nbsp&nbsp" + mass[index]; 
+      }
       document.getElementById(index + "-1").appendChild(td2);
       // td3
       var td3 = document.createElement("TD");
@@ -134,7 +140,14 @@ function cart_generator() {
       td3divdivinp.setAttribute("id", index + "-3112");
       td3divdivinp.setAttribute("type", "text");
       td3divdivinp.setAttribute("readonly","true");
-      td3divdivinp.value=quantitylist[index]
+      if (mass[index]=="kg"){
+        td3divdivinp.value=quantitylist[index]
+        }else if(mass[index]=="bunch"){
+          td3divdivinp.value=(parseFloat(quantitylist[index])*2).toString()
+        }else{
+          td3divdivinp.value=quantitylist[index]
+        }
+      
       document.getElementById(index + "-311").appendChild(td3divdivinp);
       // td3-div-div-span
           var td3divdivspan2 = document.createElement("span");
@@ -148,7 +161,7 @@ function cart_generator() {
       var td4 = document.createElement("TD");
       td4.setAttribute("id", index + "-4");
       td4.setAttribute("class", "shoping__cart__total");
-      td4.innerHTML ="₹ " + (parseInt(val[index])*parseInt(quantitylist[index])).toString()
+      td4.innerHTML ="₹ " + (parseFloat(val[index])*parseFloat(quantitylist[index])*2).toString()
       document.getElementById(index + "-1").appendChild(td4);
       // td5
       // var td5 = document.createElement("TD");
@@ -189,10 +202,11 @@ function addquantity(productname){
  var i = prodlist.indexOf(productname)
 //  console.log(i)
   var value=quantitylist[i]
-  // console.log(typeof(value))
-  var value1=parseInt(value)+0.5
-  // console.log(typeof(value1))
-  // console.log(value1)
+  console.log(typeof(value))
+  console.log(value)
+  var value1=parseFloat(value)+0.5
+  console.log(typeof(value1))
+  console.log(value1)
   var value2 =value1.toString()
   // console.log(value2)
   // console.log(typeof(value2))
@@ -213,7 +227,7 @@ function subquantity(productname){
     var mass = sessionStorage.getItem("per").split(",");
   var prodlist = sessionStorage.getItem("products").split(",");
 var quantitylist = sessionStorage.getItem("quantity").split(",");
-var value= parseInt(quantitylist[prodlist.indexOf(productname)])
+var value= parseFloat(quantitylist[prodlist.indexOf(productname)])
 if(value>1){
   value=value-0.5
   quantitylist[prodlist.indexOf(productname)]=value.toString()
@@ -239,7 +253,7 @@ function Total(){
     var val = sessionStorage.getItem("value").split(",");
     var quantitylist = sessionStorage.getItem("quantity").split(",");
     for (let index = 0; index < val.length; index++) {
-      totalvalue = totalvalue + parseInt(val[index])*parseInt(quantitylist[index])      
+      totalvalue = totalvalue + parseFloat(val[index])*parseFloat(quantitylist[index])*2      
     }
     var item = document.getElementById("totalvalue")
     item.innerHTML="₹ "+totalvalue.toString()
@@ -263,21 +277,21 @@ var totalvalue=0;
 
 var message = "Welcome to Quick N Fresh !!! %0D%0AYour Cart Contains: %0D%0A";
 for (let index = 0; index < prodlist.length; index++) {
-  totalvalue = totalvalue + parseInt(val[index])*parseInt(quantitylist[index])      
+  totalvalue = totalvalue + parseFloat(val[index])*parseFloat(quantitylist[index])*2      
 }
 for (let ind = 0; ind < prodlist.length; ind++) {
   if (mass[ind]=="bunch"){
   message =message + "Item "+(ind+1)+" : "+prodlist[ind]+"%0D%0APrice: ₹"+val[ind]+" / "+mass[ind]+" Quantity : "+quantitylist[ind]*2+" "+mass[ind]+"%0D%0A";
   }
   else{
-    message =message + "Item "+(ind+1)+" : "+prodlist[ind]+"%0D%0APrice: ₹"+val[ind]+" / "+mass[ind]+" Quantity : "+quantitylist[ind]*2+" "+mass[ind]+"%0D%0A";
+    message =message + "Item "+(ind+1)+" : "+prodlist[ind]+"%0D%0APrice: ₹"+val[ind]+" / 500 gram"+" Quantity : "+quantitylist[ind]+" "+mass[ind]+"%0D%0A";
   }
 }
 message = message + "Total Items Cost = ₹"+totalvalue+" Delivery Charge =₹"+dc
 totalvalue=totalvalue+dc
 message = message + " Total Amount = ₹"+totalvalue +"%0D%0AKindly Share your Location so we can reach you Quick N Fresh !!!"
   // var win = window.open(`https://wa.me/919623413148?text=${message}`, '_blank');
-  alert(message);
+  // alert(message);
   // alert("Order Sent To Distributer.")
   // sessionStorage.clear();
   // alert("Order Sent to Quick N Fresh")
