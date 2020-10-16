@@ -261,14 +261,16 @@ function Total(){
 
 function Message_generator(){
   if(document.getElementById('location').value == ""){
-    alert("Please Select Nearest Location")
+    // alert("Please Select Nearest Location")
+    console.log("Please Select Nearest Location")
   }else if(sessionStorage.getItem("products")==null){
-    alert("Empty Cart")
+    // alert("Empty Cart")
+    console.log("empty cart")
   }
   else if(confirm("Location is "+document.getElementById('location').value)){
     console.log(typeof(document.getElementById('location').value))
 var dc=delivery_charge(document.getElementById('location').value)
-alert("Delivery charge : ₹ "+dc);
+// alert("Delivery charge : ₹ "+dc);
 var val = sessionStorage.getItem("value").split(",");
 var mass = sessionStorage.getItem("per").split(",");
 var prodlist = sessionStorage.getItem("products").split(",");
@@ -297,8 +299,8 @@ message = message + " Total Amount = ₹"+totalvalue +"%0D%0AKindly Share your L
   // alert("Order Sent to Quick N Fresh")
 }else{
   document.getElementById("location").value =""
-  alert("Select another Location.")
- 
+  // alert("Select another Location.")
+  console.log("Please Select another Location")
 }
   }
 
